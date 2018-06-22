@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  errbot:
+    image: rroemhild/errbot
+    # Provide custom config
+    command: -c /srv/st2config.py
+    environment:
+      # Errbot image settings
+      - BACKEND=Slack
+      # Satisfy plugin requirements
+      - AUTOINSTALL_DEPS=True
+      # More logs is always better
+      - BOT_LOG_LEVEL=DEBUG
+      # Slack integration credentials
+      - BOT_TOKEN=${SLACK_API_TOKEN}
+      - BOT_ADMINS=${ERRBOT_ADMINS}
+      # err-stackstorm plugin settings
+      - ST2_API_KEY=${ST2_API_KEY}
+      - ST2_HOST=${ST2_HOST:-172.17.0.1}
+    ports:
+      - "3141:3141"
+      # HTTPS port in not in use
+      #- "3142:3142"
+    volumes:
+      # Persist configuration, plugins and logs
+      - "errbot-data:/srv"
+      - "./plugins/:/srv/plugins/"
+      # Supply custom config with StackStorm options
+      - "./st2config.py:/srv/st2config.py:ro"
+
+volumes:
+  errbot-data:

@@ -1,0 +1,6 @@
+[submodule "plugins/errbot-plugin-webserverconfiguration"]
+	path = plugins/errbot-plugin-webserverconfiguration
+	url = https://github.com/tkit/errbot-plugin-webserverconfiguration.git
+[submodule "plugins/err-stackstorm"]
+	path = plugins/err-stackstorm
+	url = https://github.com/fmnisme/err-stackstorm.git
