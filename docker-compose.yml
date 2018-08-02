@@ -12,9 +12,12 @@ services:
       - BACKEND=Slack
       # More logs is always better
       - BOT_LOG_LEVEL=DEBUG
-      # Slack integration credentials
+      # Names of bot admins in Slack
       - BOT_ADMINS
+      # Slack integration credentials
       - BOT_TOKEN
+      # Whitelist plugins bundled with Errbot
+      - CORE_PLUGINS
       # err-stackstorm plugin settings
       - ST2_API_KEY
       - ST2_HOST=${ST2_HOST:-172.17.0.1}
