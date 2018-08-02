@@ -109,10 +109,10 @@ Configuration
 
 Before spinning up Errbot, few environment variables must be configured.
 
-* ``SLACK_API_TOKEN``: API token for existing or newly created custom bot
-  integration in Slack, see above.
-* ``ERRBOT_ADMINS``: account names of user who would be allowed to issue
+* ``BOT_ADMINS``: account names of user who would be allowed to issue
   administrative commands to Errbot.
+* ``BOT_TOKEN``: API token for existing or newly created custom bot
+  integration in Slack, see above.
 * ``ST2_API_KEY``: the key created in StackStorm to access its API.
 * ``ST2_HOST`` (optional): if you're running StackStorm in **Docker on MacOS**
   set it to ``192.168.65.1``. This is special loopback interface IP address.

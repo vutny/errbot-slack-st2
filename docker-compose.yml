@@ -6,17 +6,17 @@ services:
     # Provide custom config
     command: -c /srv/st2config.py
     environment:
-      # Errbot image settings
-      - BACKEND=Slack
       # Satisfy plugin requirements
       - AUTOINSTALL_DEPS=True
+      # Errbot image settings
+      - BACKEND=Slack
       # More logs is always better
       - BOT_LOG_LEVEL=DEBUG
       # Slack integration credentials
-      - BOT_TOKEN=${SLACK_API_TOKEN}
-      - BOT_ADMINS=${ERRBOT_ADMINS}
+      - BOT_ADMINS
+      - BOT_TOKEN
       # err-stackstorm plugin settings
-      - ST2_API_KEY=${ST2_API_KEY}
+      - ST2_API_KEY
       - ST2_HOST=${ST2_HOST:-172.17.0.1}
     ports:
       - "3141:3141"
