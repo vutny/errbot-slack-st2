@@ -79,19 +79,19 @@ Create a bot integration in your Slack Team.
 #. Give your new bot a fun name and describe what it does.
 #. Press **Save Integration**.
 
-StackStorm
-----------
-
-You need to install StackStorm and configure `API Key`_ for Errbot to be able
-to talk to it.  Use ``st2 apikey create`` command inside the ``stackstorm``
-container to generate it.
+StackStorm a.k.a. ST2
+---------------------
 
 The best option for local testing and development is `getting Docker`_, but you
 may consider to have a full-fledged installation from the upstream packages on
 a dedicated or virtual machine.
 
-.. _`API Key`: https://docs.stackstorm.com/authentication.html#api-keys
+You need to run StackStorm services and configure `API Key`_ for Errbot to be
+able to talk to it. Issue ``st2 apikey create`` command in the shell inside
+the ``stackstorm`` container or wherever ST2 has been installed to generate it.
+
 .. _`getting Docker`: https://github.com/StackStorm/st2-docker
+.. _`API Key`: https://docs.stackstorm.com/authentication.html#api-keys
 
 Deployment
 ==========
@@ -102,12 +102,13 @@ ChatOps Support Pack
 Some additional configuration for ``chatops`` pack in StackStorm required for
 Errbot to be able to receive event streams back with command execution results.
 Create new ``notify-errbot`` rule and change the route in ``post_message``
-action as listed above.
+action as listed above in the `TL;DR`_ section.
 
 Configuration
 -------------
 
-Before spinning up Errbot, few environment variables must be configured.
+Before spinning up Errbot, few environment variables should be exported in
+current shell.
 
 * ``BOT_ADMINS``: account names of user who would be allowed to issue
   administrative commands to Errbot.
@@ -119,8 +120,8 @@ Before spinning up Errbot, few environment variables must be configured.
 * ``ST2_HOST`` (optional): if you're running StackStorm in **Docker on MacOS**
   set it to ``192.168.65.1``. This is special loopback interface IP address.
 
-You could export these variables in shell session or save them to ``.env`` file
-in the root of the repository.
+It is possible to save these variables in ``.env`` file in the root of the
+repository.
 
 Plugins
 -------
@@ -141,5 +142,11 @@ Start the container with pre-configured Slack and StackStorm integration:
 .. code:: bash
 
     docker-compose up -d
+
+See the log with:
+
+.. code:: bash
+
+    docker-compose logs --tail=all
 
 .. vim: fenc=utf-8 spell spl=en cc=80 tw=79 fo=want sts=4 sw=4 et
