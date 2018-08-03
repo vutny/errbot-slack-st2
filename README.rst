@@ -42,8 +42,8 @@ TL;DR
 
        git clone --recurse-submodules https://github.com/vutny/errbot-slack-st2.git
        cd errbot-slack-st2
-       export SLACK_API_TOKEN='xoxb-123456789098-QwErTyUiOpaSdFgHjKlZxCvB'
-       export ERRBOT_ADMINS='@denys'  # Put your username in a chat here
+       export BOT_TOKEN='xoxb-123456789098-QwErTyUiOpaSdFgHjKlZxCvB'
+       export BOT_ADMINS='@denys'  # Put your username in a chat here
        export ST2_API_KEY='MGU5NjQ2YzM2NzgwNDQxNmQ2MjI1ZjJkNzZlMGNlYm...'
        [ "$(uname -s)" = "Darwin" ] && export ST2_HOST=192.168.65.1
        docker-compose up -d
