@@ -118,7 +118,9 @@ current shell.
   on start up, separated by comma.
   ``ST2_API_KEY``: the key created in StackStorm to access its API.
 * ``ST2_HOST`` (optional): if you're running StackStorm in **Docker on MacOS**
-  set it to ``192.168.65.1``. This is special loopback interface IP address.
+  set it to ``192.168.65.1``. On GNU/Linux you may need to specify
+  ``172.17.42.1`` here. This is a special IP address of Docker bridge network
+  interface.
 
 It is possible to save these variables in ``.env`` file in the root of the
 repository.
