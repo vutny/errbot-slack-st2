@@ -143,10 +143,10 @@ Start the container with pre-configured Slack and StackStorm integration:
 
     docker-compose up -d
 
-See the log with:
+Watch live log with:
 
 .. code:: bash
 
-    docker-compose logs --tail=all
+    docker-compose logs --tail=all -f
 
 .. vim: fenc=utf-8 spell spl=en cc=80 tw=79 fo=want sts=4 sw=4 et
